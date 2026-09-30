@@ -9,3 +9,11 @@ Functional images were acquired as multi-echo BOLD scans with four echoes per ru
 
 Validator note:
 The BIDS validator reports an INCONSISTENT_PARAMETERS warning because the functional data were acquired using a multi-echo BOLD sequence. Each functional run contains four echoes, represented with the echo-1, echo-2, echo-3, and echo-4 entities in the filenames. The expected EchoTime values differ across echoes, while RepetitionTime and task structure are consistent across runs.
+
+Defacing:
+All T1w anatomical images in this dataset have been defaced using AFNI's
+@afni_refacer_run in -mode_deface, which replaces the face and ears with zeros.
+The anatomical images were regenerated from the original DICOMs using
+dcm2niix v1.0.20260416 and verified to be byte-identical to the previously
+released versions before defacing was applied; only the face/ear region
+differs from the original acquisition.
